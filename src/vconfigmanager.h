@@ -17,6 +17,7 @@
 #include "utils/vmetawordmanager.h"
 #include "markdownitoption.h"
 #include "vhistoryentry.h"
+#include "vexplorerentry.h"
 
 class QJsonObject;
 class QString;
@@ -359,11 +360,17 @@ public:
     void setLastOpenedFiles(const QVector<VFileSessionInfo> &p_files);
 
     // Read history from [history] of session.ini.
-    void getHistory(QLinkedList<VHistoryEntry> &p_history);
+    void getHistory(QLinkedList<VHistoryEntry> &p_history) const;
 
     void setHistory(const QLinkedList<VHistoryEntry> &p_history);
 
     int getHistorySize() const;
+
+    // Read explorer's starred entries from [explorer_starred] of session.ini.
+    void getExplorerEntries(QVector<VExplorerEntry> &p_entries) const;
+
+    // Output starred entries to [explorer_starred] of session.ini.
+    void setExplorerEntries(const QVector<VExplorerEntry> &p_entries);
 
     // Read custom magic words from [magic_words] section.
     QVector<VMagicWord> getCustomMagicWords();

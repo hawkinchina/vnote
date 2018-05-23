@@ -524,7 +524,9 @@ void VEditWindow::tabbarContextMenuRequested(QPoint p_pos)
                 QDesktopServices::openUrl(url);
             });
 
-    QAction *openLocationAct = new QAction(tr("Open Note Location"), &menu);
+    QAction *openLocationAct = new QAction(VIconUtils::menuIcon(":/resources/icons/open_location.svg"),
+                                           tr("Open Note Location"),
+                                           &menu);
     openLocationAct->setToolTip(tr("Open the folder containing this note in operating system"));
     connect(openLocationAct, &QAction::triggered,
             this, [this](){

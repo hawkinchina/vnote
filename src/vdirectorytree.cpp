@@ -425,7 +425,9 @@ void VDirectoryTree::contextMenuRequested(QPoint pos)
     menu.addAction(reloadAct);
 
     if (item) {
-        QAction *openLocationAct = new QAction(tr("&Open Folder Location"), &menu);
+        QAction *openLocationAct = new QAction(VIconUtils::menuIcon(":/resources/icons/open_location.svg"),
+                                               tr("&Open Folder Location"),
+                                               &menu);
         openLocationAct->setToolTip(tr("Open the folder containing this folder in operating system"));
         connect(openLocationAct, &QAction::triggered,
                 this, &VDirectoryTree::openDirectoryLocation);

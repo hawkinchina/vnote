@@ -43,6 +43,7 @@ class VSearcher;
 class QPrinter;
 class VUniversalEntry;
 class VHistoryList;
+class VExplorer;
 
 enum class PanelViewState
 {
@@ -448,6 +449,8 @@ private:
     VUniversalEntry *m_ue;
 
     VHistoryList *m_historyList;
+
+    VExplorer *m_explorer;
 
     // Interval of the shared memory timer in ms.
     static const int c_sharedMemTimerInterval;

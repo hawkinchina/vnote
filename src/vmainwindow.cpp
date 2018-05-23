@@ -46,6 +46,7 @@
 #include "vlistfolderue.h"
 #include "dialog/vfixnotebookdialog.h"
 #include "vhistorylist.h"
+#include "vexplorer.h"
 
 extern VConfigManager *g_config;
 
@@ -149,6 +150,7 @@ void VMainWindow::registerCaptainAndNavigationTargets()
     m_captain->registerNavigationTarget(m_dirTree);
     m_captain->registerNavigationTarget(m_fileList);
     m_captain->registerNavigationTarget(m_historyList);
+    m_captain->registerNavigationTarget(m_explorer);
     m_captain->registerNavigationTarget(m_editArea);
     m_captain->registerNavigationTarget(m_toolBox);
     m_captain->registerNavigationTarget(outline);
@@ -280,6 +282,11 @@ void VMainWindow::setupNaviBox()
     m_naviBox->addItem(m_historyList,
                        ":/resources/icons/history.svg",
                        tr("History"));
+
+    m_explorer = new VExplorer();
+    m_naviBox->addItem(m_explorer,
+                       ":/resources/icons/explorer.svg",
+                       tr("Explorer"));
 }
 
 void VMainWindow::setupNotebookPanel()
